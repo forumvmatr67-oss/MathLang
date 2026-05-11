@@ -1,0 +1,50 @@
+# example.math - демонстрация возможностей MathLang
+
+# 1. Простая арифметика
+x = 10
+y = 20
+sum = x + y
+print sum
+
+# 2. Возведение в степень
+power = 2 ^ 4
+print power
+
+# 3. Квадратный корень и другие функции
+root = sqrt(144)
+print root
+
+log_val = log(2.71828)   # натуральный логарифм
+print log_val
+
+# 4. Тригонометрия
+angle = 3.14159 / 2   # pi/2
+sin_val = sin(angle)
+cos_val = cos(angle)
+print sin_val
+print cos_val
+
+# 5. Пользовательская функция (один параметр)
+func cube(x) = x^3
+result = cube(5)
+print result
+
+# 6. Составное выражение с функцией внутри
+area = cube(3) + sqrt(49)
+print area
+
+# 7. Отрицательные числа и модуль
+neg = -15
+abs_val = abs(neg)
+print abs_val
+
+# 8. Экспонента
+exp_val = exp(1)
+print exp_val
+
+# 9. Округление вверх/вниз
+print floor(3.7)
+print ceil(3.2)
+
+# 10. Комментарии можно писать везде
+print "Готово!"   # строки пока не поддерживаются, это просто комментарий
