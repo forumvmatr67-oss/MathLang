@@ -8,14 +8,10 @@ def plot(func_expr, xmin, xmax, width=60, height=20, char='*'):
     width, height: размер в символах
     char: символ для рисования
     """
-    # Создаём список значений Y
     xs = [xmin + i * (xmax - xmin) / (width - 1) for i in range(width)]
     ys = []
     for x in xs:
-        # Вычисляем выражение: подставляем x вместо 'x'
-        # Безопасно через eval с ограниченным пространством имён
         try:
-            # Доступные функции: sin, cos, sqrt, log, exp, abs, floor, ceil, pi
             namespace = {
                 'x': x,
                 'sin': math.sin, 'cos': math.cos, 'tan': math.tan,
@@ -28,7 +24,6 @@ def plot(func_expr, xmin, xmax, width=60, height=20, char='*'):
         except:
             ys.append(float('nan'))
     
-    # Найти min и max Y (игнорируя nan)
     valid_ys = [y for y in ys if not math.isnan(y)]
     if not valid_ys:
         print("Ошибка: нет вычисленных значений")
@@ -39,20 +34,15 @@ def plot(func_expr, xmin, xmax, width=60, height=20, char='*'):
         ymin -= 1
         ymax += 1
     
-    # Строим сетку символов
     grid = [[' ' for _ in range(width)] for _ in range(height)]
     
-    # Отрисовка графика
     for i, y in enumerate(ys):
         if math.isnan(y):
             continue
-        # Нормализация Y в диапазон [0, height-1]
         y_norm = int((y - ymin) / (ymax - ymin) * (height - 1))
         y_norm = max(0, min(height - 1, y_norm))
         grid[height - 1 - y_norm][i] = char
     
-    # Отрисовка осей
-    # Горизонтальная ось (y=0)
     zero_row = None
     if ymin <= 0 <= ymax:
         zero_row = int((0 - ymin) / (ymax - ymin) * (height - 1))
@@ -61,7 +51,6 @@ def plot(func_expr, xmin, xmax, width=60, height=20, char='*'):
             if grid[zero_row][i] == ' ':
                 grid[zero_row][i] = '-'
     
-    # Вертикальная ось (x=0)
     zero_col = None
     if xmin <= 0 <= xmax:
         zero_col = int((0 - xmin) / (xmax - xmin) * (width - 1))
@@ -69,14 +58,12 @@ def plot(func_expr, xmin, xmax, width=60, height=20, char='*'):
             if grid[j][zero_col] == ' ':
                 grid[j][zero_col] = '|'
     
-    # Пересечение осей
     if zero_row is not None and zero_col is not None:
         if grid[zero_row][zero_col] == '-':
             grid[zero_row][zero_col] = '+'
         elif grid[zero_row][zero_col] == '|':
             grid[zero_row][zero_col] = '+'
     
-    # Печать результата
     print(f"График функции: {func_expr}")
     print(f"Диапазон X: [{xmin}, {xmax}], Y: [{ymin:.3f}, {ymax:.3f}]")
     print("+" + "-" * width + "+")
@@ -116,7 +103,6 @@ def scatter(x_list, y_list, width=60, height=20, char='o'):
         j = max(0, min(height - 1, j))
         grid[height - 1 - j][i] = char
     
-    # Отрисовка осей (упрощённо)
     print(f"Точечная диаграмма, {len(xs)} точек")
     print("+" + "-" * width + "+")
     for row in grid:
