@@ -1,6 +1,7 @@
 import sys
 import re
 import math
+from plots import ascii_plot
 
 # ---------------------------- Токенизатор ----------------------------
 def tokenize(code):
@@ -199,6 +200,10 @@ class Interpreter:
             'sin': math.sin, 'cos': math.cos, 'tan': math.tan,
             'sqrt': math.sqrt, 'log': math.log, 'exp': math.exp,
             'abs': abs, 'floor': math.floor, 'ceil': math.ceil,
+            'plot': ascii_plot.plot,
+            'scatter': ascii_plot.scatter,
+            'grid': ascii_plot.grid,
+            'axis': ascii_plot.axis,
         }
 
     def evaluate(self, node):
@@ -219,10 +224,8 @@ class Interpreter:
             else: raise ValueError(f'Unknown operator {node.op}')
         elif isinstance(node, FuncCall):
             if node.name in self.builtins:
-                if len(node.args) != 1:
-                    raise TypeError(f'{node.name} expects 1 argument')
-                arg = self.evaluate(node.args[0])
-                return self.builtins[node.name](arg)
+                args = [self.evaluate(a) for a in node.args]
+                return self.builtins[node.name](*args)
             elif node.name in self.functions:
                 param, body = self.functions[node.name]
                 if len(node.args) != 1:
