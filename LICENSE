@@ -1,38 +1,21 @@
+MIT License
 
----
+Copyright (c) 2026 Gosha
 
-## 🚀 Что сделать, чтобы язык стал популярным?
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Популярность языка — сложная задача. Вот практические шаги:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### 🔹 1. Сделайте язык **полезным и решающим реальные проблемы**
-- Добавьте матрицы, векторы (например, `A = [1,2;3,4]`).
-- Реализуйте построение графиков (вывод в SVG или вызов Matplotlib).
-- Поддержите символьные вычисления (производные, упрощение).
-
-### 🔹 2. Улучшите **документацию и туториалы**
-- Напишите **site** на GitHub Pages (Markdown + Jekyll).
-- Сделайте **интерактивный REPL** (можно через `code` в README или онлайн с WebAssembly).
-- Запишите 5‑минутное видео на YouTube: «MathLang за 5 минут».
-
-### 🔹 3. Создайте **сообщество**
-- Пригласите друзей и коллег попробовать язык.
-- Опубликуйте на **Hacker News**, **Reddit** (`r/ProgrammingLanguages`, `r/math`), **Telegram‑каналах** (Python, программирование).
-- Заведите **issues** на GitHub для feature requests.
-
-### 🔹 4. Интеграции и расширения
-- Плагин для **VS Code** (подсветка синтаксиса `.math`).
-- Экспорт результатов в CSV, JSON, LaTeX.
-
-### 🔹 5. Производительность и надёжность
-- Покройте тестами (`pytest`).
-- Добавьте JIT‑компиляцию (например, через `llvmlite`) для ускорения циклов (когда они появятся).
-
-### 🔹 6. Оригинальная «фишка»
-- Например, автоматическое распараллеливание вычислений.
-- Или встроенная поддержка физических величин (10 m + 5 m → 15 m).
-
-### 🔹 7. Публикация на PyPI
-Упакуйте интерпретатор так, чтобы можно было установить командой:
-```bash
-pip install mathlang
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
